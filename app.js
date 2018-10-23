@@ -22,6 +22,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://dec0mpiled:welcometor4ge@ds052649.mlab.com:52649/psvc', { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("SUCCESS: Connected to PSVC. Let's get wormy!!");
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
